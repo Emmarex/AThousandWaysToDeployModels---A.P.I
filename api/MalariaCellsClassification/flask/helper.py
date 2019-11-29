@@ -15,6 +15,4 @@ def preprocess_img(img_file):
         final_image = np.array(final_image)
         return True, final_image
     except Exception as e:
-        print(e)
         return False, str(e)
-    

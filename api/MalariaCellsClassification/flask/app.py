@@ -36,12 +36,11 @@ def classify_malaria_cells():
                 score = malaria_model.predict(preprocessed_image)
                 label_indx = np.argmax(score)
                 classification = "Normal" if label_indx == 0 else "Infected"
-                confidence_level = round(np.max(score), 2)
+                max_score = round(np.max(score), 2)
                 return_data = {
                     "error" : "0",
                     "message" : "Successful",
-                    "classification" : classification,
-                    "confidence_level" : f"{str(confidence_level)}%"
+                    "classification" : classification
                 }
             else:
                 return_data = {
@@ -61,4 +60,4 @@ def classify_malaria_cells():
     return flask_app.response_class(response=json.dumps(return_data), mimetype='application/json')
 
 if __name__ == "__main__":
-    flask_app.run(host='127.0.0.1', port=8080, debug=False, threaded=False)
+    flask_app.run(port=8080, debug=False, threaded=False)
