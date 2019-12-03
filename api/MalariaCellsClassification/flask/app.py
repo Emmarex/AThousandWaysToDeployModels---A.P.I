@@ -1,13 +1,12 @@
 #
 import json
-import pickle
 import numpy as np
 # 
 from keras.models import load_model
 # OR
 # from tensorflow.keras.models import load_model
 # 
-from flask import Flask, request, abort, jsonify
+from flask import Flask, request
 # 
 import helper
 
